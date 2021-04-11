@@ -2,9 +2,10 @@ import pyxel
 import pygame.midi
 
 
-class App:
+class Base:
     def __init__(self):
         pygame.midi.init()
+        self.midi_events = None
 
         for i in range(pygame.midi.get_count()):
             interf, name, input_dev, output_dev, opened = pygame.midi.get_device_info(i)
@@ -17,8 +18,8 @@ class App:
 
     def update(self):
         if self.midi_input.poll():
-            midi_events = self.midi_input.read(10)
-            print("full midi_events:" + str(midi_events))
+            self.midi_events = self.midi_input.read(10)
+            print("full midi_events:" + str(self.midi_events))
         if pyxel.btnp(pyxel.KEY_Q):
             self.midi_input.close()
             pygame.midi.quit()
@@ -28,4 +29,6 @@ class App:
         pyxel.cls(0)
 
 
-App()
+if __name__ == '__main__':
+    print("base")
+    Base()
