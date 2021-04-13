@@ -6,6 +6,8 @@ class Base:
     def __init__(self):
         pygame.midi.init()
         self.midi_events = None
+        self.window_width = 256
+        self.window_height = 256
 
         for i in range(pygame.midi.get_count()):
             interf, name, input_dev, output_dev, opened = pygame.midi.get_device_info(i)
@@ -13,7 +15,7 @@ class Base:
                 print('X-TOUCH MINI is found, midi id=' + str(i))
                 self.midi_input = pygame.midi.Input(i)
 
-        pyxel.init(256, 256, caption="Template")
+        pyxel.init(self.window_width, self.window_height, caption="Template")
         pyxel.run(self.update, self.draw)
 
     def update(self):
