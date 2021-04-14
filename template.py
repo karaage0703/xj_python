@@ -6,6 +6,7 @@ class Base:
     def __init__(self):
         pygame.midi.init()
         self.midi_events = None
+        self.midi_input = None
         self.window_width = 256
         self.window_height = 256
 
@@ -19,9 +20,10 @@ class Base:
         pyxel.run(self.update, self.draw)
 
     def update(self):
-        if self.midi_input.poll():
-            self.midi_events = self.midi_input.read(10)
-            print("full midi_events:" + str(self.midi_events))
+        if self.midi_input is not None:
+            if self.midi_input.poll():
+                self.midi_events = self.midi_input.read(10)
+                print("full midi_events:" + str(self.midi_events))
         if pyxel.btnp(pyxel.KEY_Q):
             self.midi_input.close()
             pygame.midi.quit()
