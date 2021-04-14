@@ -20,8 +20,8 @@ class Euclid(template.Base):
     def draw(self):
         pyxel.cls(0)
         wd = self.window_width
-        self.ratio = self.num_b / self.num_a
-        tmp_color = self.color_base
+        ratio = self.num_b / self.num_a
+        color = self.color_base
         x_pos = 0
         y_pos = 0
         itr = 0
@@ -29,16 +29,16 @@ class Euclid(template.Base):
         while wd > 0.1:
             itr += 1
             if itr % 2 == 1:
-                while x_pos + wd * self.ratio < self.window_width + 0.1:
-                    pyxel.rect(x_pos, y_pos, wd * self.ratio, wd, tmp_color % 16)
-                    x_pos += wd * self.ratio
-                    tmp_color += 1
-                wd = self.window_width -x_pos
+                while x_pos + wd * ratio < self.window_width + 0.1:
+                    pyxel.rect(x_pos, y_pos, wd * ratio, wd, color % 16)
+                    x_pos += wd * ratio
+                    color += 1
+                wd = self.window_width - x_pos
             else:
-                while y_pos + wd / self.ratio < self.window_width + 0.1:
-                    pyxel.rect(x_pos, y_pos, wd, wd / self.ratio, tmp_color % 16)
-                    y_pos += wd / self.ratio
-                    tmp_color += 1
+                while y_pos + wd / ratio < self.window_width + 0.1:
+                    pyxel.rect(x_pos, y_pos, wd, wd / ratio, color % 16)
+                    y_pos += wd / ratio
+                    color += 1
                 wd = self.window_width - y_pos
 
 
