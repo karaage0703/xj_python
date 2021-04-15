@@ -18,8 +18,8 @@ def div_square(x_pos, y_pos, wd, ratio, color):
         else:
             while y_pos + wd / ratio < y_end_pos + 0.1:
                 pyxel.rect(x_pos, y_pos, wd, wd / ratio, color % 16)
-                color += 1
                 y_pos += wd / ratio
+                color += 1
             wd = y_end_pos - y_pos
 
 
