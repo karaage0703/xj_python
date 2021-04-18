@@ -1,5 +1,6 @@
 import pyxel
 import template
+import time
 
 
 def div_rect(x_pos, y_pos, wd, ratio, color, thr):
@@ -50,6 +51,12 @@ class Euclid(template.Base):
         self.num_b = 6
         self.color = 1
         self.thr = 10
+        self.music_x = 0
+        self.music_y = 0
+        self.music_size = 20
+        self.music_flag = True
+        self.music_timer = 0
+        self.music_wait = 1
         super().__init__()
 
     def update(self):
@@ -67,6 +74,23 @@ class Euclid(template.Base):
         if self.num_a is not self.num_b:
             ratio = self.num_b / self.num_a
         div_square(0, 0, self.window_width, ratio, self.color, self.thr)
+
+        if self.music_flag is True:
+            self.music_flag = False
+            self.music_timer = time.time()
+            self.music_x += self.music_size
+            while self.music_x > self.window_width:
+                self.music_x -= self.window_width
+                self.music_y += self.music_size
+            while self.music_y > self.window_height:
+                self.music_y -= self.window_height
+            note = pyxel.pget(self.music_x, self.music_y) % 3
+            pyxel.play(0, note, loop=False)
+
+        else:
+            if time.time() - self.music_timer > self.music_wait:
+                self.music_flag = True
+        pyxel.rect(self.music_x, self.music_y, self.music_size, self.music_size, 1) 
 
 
 if __name__ == '__main__':

@@ -17,6 +17,9 @@ class Base:
                 self.midi_input = pygame.midi.Input(i)
 
         pyxel.init(self.window_width, self.window_height, caption="Template")
+        pyxel.sound(0).set("c3", "p", "7", "s", 5)
+        pyxel.sound(1).set("d3", "p", "7", "s", 5)
+        pyxel.sound(2).set("e3", "p", "7", "s", 5)
         pyxel.run(self.update, self.draw)
 
     def update(self):
