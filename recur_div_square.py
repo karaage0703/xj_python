@@ -7,6 +7,7 @@ def div_rect(x_pos, y_pos, wd, ratio, color, thr):
     x_end_pos = x_pos + wd
     y_end_pos = y_pos + wd / ratio
     pyxel.rect(x_pos, y_pos, wd, wd / ratio, color % 16)
+    color += 1
 
     while wd > thr:
         itr += 1
@@ -14,13 +15,11 @@ def div_rect(x_pos, y_pos, wd, ratio, color, thr):
             while x_pos + wd < x_end_pos + 0.1:
                 div_square(x_pos, y_pos, wd, ratio, color, thr)
                 x_pos += wd
-                color += 1
             wd = x_end_pos - x_pos
         else:
             while y_pos + wd < y_end_pos + 0.1:
                 div_square(x_pos, y_pos, wd, ratio, color, thr)
                 y_pos += wd
-                color += 1
             wd = y_end_pos - y_pos
 
 
@@ -29,6 +28,7 @@ def div_square(x_pos, y_pos, wd, ratio, color, thr):
     x_end_pos = wd + x_pos
     y_end_pos = wd + y_pos
     pyxel.rect(x_pos, y_pos, wd, wd, color % 16)
+    color += 1
 
     while wd > thr:
         itr += 1
@@ -36,13 +36,11 @@ def div_square(x_pos, y_pos, wd, ratio, color, thr):
             while x_pos + wd * ratio < x_end_pos + 0.1:
                 div_rect(x_pos, y_pos, wd * ratio, ratio, color, thr)
                 x_pos += wd * ratio
-                color += 1
             wd = x_end_pos - x_pos
         else:
             while y_pos + wd / ratio < y_end_pos + 0.1:
                 div_rect(x_pos, y_pos, wd, ratio, color, thr)
                 y_pos += wd / ratio
-                color += 1
             wd = y_end_pos - y_pos
 
 
@@ -50,7 +48,7 @@ class Euclid(template.Base):
     def __init__(self):
         self.num_a = 10
         self.num_b = 6
-        self.color_base = 1
+        self.color = 1
         self.thr = 10
         super().__init__()
 
@@ -68,8 +66,7 @@ class Euclid(template.Base):
         pyxel.cls(0)
         if self.num_a is not self.num_b:
             ratio = self.num_b / self.num_a
-        color = self.color_base
-        div_square(0, 0, self.window_width, ratio, color, self.thr)
+        div_square(0, 0, self.window_width, ratio, self.color, self.thr)
 
 
 if __name__ == '__main__':
