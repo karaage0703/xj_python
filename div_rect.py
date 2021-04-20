@@ -11,8 +11,6 @@ class Euclid(template.Base):
         super().__init__()
         pyxel.init(self.window_width, self.window_height, caption="Template")
         pyxel.run(self.update, self.draw)
-        pyxel.init(self.window_width, self.window_height, caption="Template")
-        pyxel.run(self.update, self.draw)
 
     def update(self):
         super().update()
