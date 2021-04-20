@@ -16,14 +16,20 @@ class EuclidMusic(template.Base):
         # music setting
         self.music_x = 0
         self.music_y = 0
-        self.music_size = 20
+        self.music_size = 10
         self.music_flag = True
         self.music_timer = 0
-        self.music_wait = 0.4
+        self.music_wait = 0.1
+        self.note_numb_max = 6
         pyxel.init(self.window_width, self.window_height, caption="Template")
-        pyxel.sound(0).set("c3", "p", "7", "s", 5)
-        pyxel.sound(1).set("d3", "p", "7", "s", 5)
-        pyxel.sound(2).set("e3", "p", "7", "s", 5)
+
+        pyxel.sound(0).set('d3', 'p', '7', 's', 5)
+        pyxel.sound(1).set('e3', 'p', '7', 's', 5)
+        pyxel.sound(2).set('f3', 'p', '7', 's', 5)
+        pyxel.sound(3).set('g3', 'p', '7', 's', 5)
+        pyxel.sound(4).set('a3', 'p', '7', 's', 5)
+        pyxel.sound(5).set('b3', 'p', '7', 's', 5)
+
         pyxel.run(self.update, self.draw)
 
     def update(self):
@@ -38,8 +44,9 @@ class EuclidMusic(template.Base):
 
     def draw(self):
         pyxel.cls(0)
-        if self.num_a is not self.num_b:
-            ratio = self.num_b / self.num_a
+        if self.num_a is self.num_b:
+            self.num_b += 1
+        ratio = self.num_b / self.num_a
         rds.div_square(0, 0, self.window_width, ratio, self.color, self.thr)
 
         if self.music_flag is True:
@@ -51,7 +58,7 @@ class EuclidMusic(template.Base):
                 self.music_y += self.music_size
             while self.music_y > self.window_height:
                 self.music_y -= self.window_height
-            note = pyxel.pget(self.music_x, self.music_y) % 3
+            note = pyxel.pget(self.music_x, self.music_y) % self.note_numb_max
             pyxel.play(0, note, loop=False)
 
         else:
