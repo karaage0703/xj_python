@@ -18,7 +18,7 @@ Test commands:
 
 ```sh
 $ git clone https://github.com/karaage0703/xj_python
-$ cd
+$ cd xj_python
 $ python3 template.py
 ```
 
