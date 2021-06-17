@@ -35,3 +35,4 @@ karaage0703
 ## References
 
 - https://tkitao.hatenablog.com/entry/2019/09/03/010514
+- [日経ソフトウエア 2021年7月号](https://amzn.to/3zvlfzI)
