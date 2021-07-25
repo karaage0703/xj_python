@@ -8,9 +8,16 @@ xj system
 
 ## Setup
 
+Execute following command for installing xj library:
+
+```sh
+$ pip3 install git+https://github.com/karaage0703/xj_python
+```
+
 Recommended input device is X-TOUCH MINI(MIDI).
 
 You can operate XJ system with normal keyboard.
+
 
 ## Usage
 
@@ -18,11 +25,13 @@ Test commands:
 
 ```sh
 $ git clone https://github.com/karaage0703/xj_python
-$ cd xj_python
-$ python3 template.py
+$ cd xj_python/examples
+$ python3 color.py
 ```
 
-If you can see blank window, program is OK.
+If you can see black window, program is OK.
+
+Press 'E' or 'R' of keyboard button. You can see changing color of window.
 
 Custom and hack and enjoy XJ system!
 
