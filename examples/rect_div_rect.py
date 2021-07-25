@@ -1,5 +1,5 @@
 import pyxel
-import xj
+import xj_python
 
 
 def div_square(x_pos, y_pos, wd, ratio, color):
@@ -23,7 +23,7 @@ def div_square(x_pos, y_pos, wd, ratio, color):
             wd = y_end_pos - y_pos
 
 
-class Euclid(xj.Base):
+class Euclid(xj_python.Base):
     def __init__(self):
         self.num_a = 10
         self.num_b = 6
