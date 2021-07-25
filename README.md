@@ -11,7 +11,7 @@ xj system
 Execute following command for installing xj_python library:
 
 ```sh
-$ pip3 install git+https://github.com/karaage0703/xj_python
+$ pip3 install xj_python
 ```
 
 Recommended input device is X-TOUCH MINI(MIDI).
