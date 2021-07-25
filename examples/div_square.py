@@ -1,8 +1,8 @@
 import pyxel
-import template
+import xj
 
 
-class Euclid(template.Base):
+class Euclid(xj.Base):
     def __init__(self):
         self.num_a = 10
         self.num_b = 6

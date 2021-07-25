@@ -1,8 +1,8 @@
 import pyxel
-import template
+import xj
 
 
-class Color(template.Base):
+class Color(xj.Base):
     def __init__(self):
         self.color_numb = 0
         super().__init__()

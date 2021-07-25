@@ -1,6 +1,6 @@
 # Reference Nikkei Software 2021/07 P.142-P.149 "Sparkler"
 import pyxel
-import template
+import xj
 import random
 import numpy as np
 import sys
@@ -8,7 +8,7 @@ import sys
 sys.setrecursionlimit(20000)
 
 
-class Sparkler(template.Base):
+class Sparkler(xj.Base):
     def __init__(self):
         self.thr = 0.47
         self.color = 1

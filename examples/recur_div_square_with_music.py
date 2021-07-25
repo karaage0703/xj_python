@@ -1,10 +1,10 @@
 import pyxel
-import template
+import xj
 import recur_div_square as rds
 import time
 
 
-class EuclidMusic(template.Base):
+class EuclidMusic(xj.Base):
     def __init__(self):
         self.num_a = 10
         self.num_b = 6
