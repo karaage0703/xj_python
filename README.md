@@ -35,6 +35,22 @@ Press 'E' or 'R' of keyboard button. You can see changing color of window.
 
 Custom and hack and enjoy XJ system!
 
+## Update PyPI package
+
+1. Change version of `setup.py`
+
+2. Build pip package:
+
+```sh
+$ ./build_pip_package.sh
+```
+
+3. Upload pip package to PyPI
+
+```sh
+$ twine upload --repository pypi dist/xj_python-*.tar.gz
+```
+
 ## License
 This software is released under the MIT License, see LICENSE.
 
