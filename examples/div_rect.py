@@ -10,6 +10,7 @@ class Euclid(xj_python.Base):
         self.color_base = 1
         super().__init__()
         pyxel.init(self.window_width, self.window_height, caption="Template")
+        self.audio_initialize()
         pyxel.run(self.update, self.draw)
 
     def update(self):
@@ -46,6 +47,8 @@ class Euclid(xj_python.Base):
                     y_pos += wd
                     tmp_color += 1
                 wd = tmp_num_b - y_pos
+
+        self.audio_sequence()
 
 
 if __name__ == '__main__':

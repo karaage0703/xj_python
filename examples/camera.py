@@ -10,6 +10,7 @@ class Camera(xj_python.Base):
 
         super().__init__()
         pyxel.init(self.window_width, self.window_height, caption="Camera")
+        self.audio_initialize()
         pyxel.run(self.update, self.draw)
 
     def update(self):
@@ -45,6 +46,7 @@ class Camera(xj_python.Base):
                 for x in range(image.shape[1]):
                     pyxel.pset(x, y, int(image[y][x][0] / 20))
                     # pyxel.pset(x, y, self.color_palette_matching(image[y][x]))
+            self.audio_sequence()
         except cv2.error:
             print('cv2.error')
 

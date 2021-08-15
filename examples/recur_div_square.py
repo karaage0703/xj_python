@@ -53,6 +53,7 @@ class Euclid(xj_python.Base):
 
         super().__init__()
         pyxel.init(self.window_width, self.window_height, caption="Template")
+        self.audio_initialize()
         pyxel.run(self.update, self.draw)
 
     def update(self):
@@ -70,6 +71,7 @@ class Euclid(xj_python.Base):
         if self.num_a is not self.num_b:
             ratio = self.num_b / self.num_a
         div_square(0, 0, self.window_width, ratio, self.color, self.thr)
+        self.audio_sequence()
 
 
 if __name__ == '__main__':
