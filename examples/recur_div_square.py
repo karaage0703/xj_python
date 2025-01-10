@@ -52,7 +52,7 @@ class Euclid(xj_python.Base):
         self.thr = 10
 
         super().__init__()
-        pyxel.init(self.window_width, self.window_height, caption="Template")
+        pyxel.init(self.window_width, self.window_height, title="recur_div_square")
         self.audio_initialize()
         pyxel.run(self.update, self.draw)
 

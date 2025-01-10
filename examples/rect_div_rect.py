@@ -29,7 +29,7 @@ class Euclid(xj_python.Base):
         self.num_b = 6
         self.color_base = 1
         super().__init__()
-        pyxel.init(self.window_width, self.window_height, caption="Template")
+        pyxel.init(self.window_width, self.window_height, title="rect_div_rect")
         self.audio_initialize()
         pyxel.run(self.update, self.draw)
 

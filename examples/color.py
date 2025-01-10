@@ -6,7 +6,7 @@ class Color(xj_python.Base):
     def __init__(self):
         self.color_numb = 0
         super().__init__()
-        pyxel.init(self.window_width, self.window_height, caption="Template")
+        pyxel.init(self.window_width, self.window_height, title="Color")
         pyxel.run(self.update, self.draw)
 
     def update(self):
