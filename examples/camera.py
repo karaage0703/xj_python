@@ -9,7 +9,7 @@ class Camera(xj_python.Base):
         self.cap = cv2.VideoCapture(0)
 
         super().__init__()
-        pyxel.init(self.window_width, self.window_height, caption="Camera")
+        pyxel.init(self.window_width, self.window_height, title="Camera")
         self.audio_initialize()
         pyxel.run(self.update, self.draw)
 
@@ -26,7 +26,7 @@ class Camera(xj_python.Base):
             image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
             for y in range(image.shape[0]):
                 for x in range(image.shape[1]):
-                    pyxel.pset(x, y, (image[y][x][2] / 10) % 16)
+                    pyxel.pset(x, y, int((image[y][x][2] / 10) % 16))
             self.audio_sequence()
         except cv2.error:
             print('cv2.error')

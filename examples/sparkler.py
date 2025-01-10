@@ -19,7 +19,7 @@ class Sparkler(xj_python.Base):
         self.x_initial_pos = int(random.random() * self.window_width)
         self.y_initial_pos = int(random.random() * self.window_height)
 
-        pyxel.init(self.window_width, self.window_height, caption="Sparkler")
+        pyxel.init(self.window_width, self.window_height, title="Sparkler")
         pyxel.cls(7)
         pyxel.run(self.update, self.draw)
 
@@ -40,7 +40,7 @@ class Sparkler(xj_python.Base):
             self.lattice = np.random.uniform(0, 1.0, (self.window_width, self.window_height)).tolist()
 
     def walk(self, x_pos, y_pos, threshold):
-        pyxel.rect(x_pos, y_pos, 1, 1, self.color)
+        pyxel.rect(x_pos, y_pos, 1, 1, int(self.color))
         self.lattice[x_pos][y_pos] = -1
 
         direction_order = list(range(4))
